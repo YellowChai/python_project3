@@ -6,11 +6,13 @@ from pprint import pprint
 URL= "http://127.0.0.1:2224/menu/json"
 
 response= requests.get(URL).json()
+
+# user friendly format1 
 pprint(response)
 print()
 print("-----------------------------------------------------------------------------")
 
-# user friendly format
+# user friendly format2
 for data in response:
     name = data['name']
     ingredients = data['ingredients']

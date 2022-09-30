@@ -2,7 +2,7 @@
 <html>
    <body>
       <h1>Coffee Menu</h1>
-
+      <h4>Click the coffee to see the recipe</h4>
       {%- for coffee in coffeemenu %}
       <h3><a href="http://0.0.0.0:2224/menu/{{coffee.name}}"> {{coffee.name}}</a></h3> 
       {% endfor%}
