@@ -5,6 +5,7 @@ from flask import redirect
 from flask import url_for
 from flask import request
 from flask import render_template
+from flask import jsonify
 
 import json
 
@@ -86,6 +87,11 @@ def coffee_maker(coffee):
 @app.route("/menu/")
 def coffee_list():
    return render_template("coffeelist.html", coffeemenu = coffeemenu)
+
+# This is for the requests http library 
+@app.route("/menu/json/")
+def menu_json():
+   return jsonify(coffeemenu)
 
 # @app.route("/menu", methods = ["GET"])
 # def recipe():
