@@ -1,19 +1,15 @@
 #!/usr/bin/python3
-# An object of Flask class is our WSGI application
+
 from flask import Flask
-from flask import redirect
-from flask import url_for
-from flask import request
 from flask import render_template
 from flask import jsonify
 
 import json
 
-# Flask constructor takes the name of current
-# module (__name__) as argument
+
 app = Flask(__name__)
 
-
+# coffee nunu JSON 
 coffeemenu = [
    {
       "name" : "Pumpkin Spice Latte",
@@ -70,14 +66,12 @@ coffeemenu = [
 ]
 
 
-# route() function of the Flask class is a
-# decorator, tells the application which URL
-# should call the associated function
+# main page 
 @app.route("/")
 def hello_world():
    return render_template("welcome.html")
 
-# search the coffee that user requested 
+# find the coffee that user requested and send the data to the rendering page 
 @app.route("/menu/<coffee>")
 def coffee_maker(coffee):
    print("hit")
@@ -85,24 +79,16 @@ def coffee_maker(coffee):
       if x['name'] == coffee:
          return render_template("coffeedetail.html", coffee = x)
 
+# all coffee menu lists
 @app.route("/menu/")
 def coffee_list():
    return render_template("coffeelist.html", coffeemenu = coffeemenu)
 
-# This is for the requests http library 
+# returns JSON 
 @app.route("/menu/json/")
 def menu_json():
    return jsonify(coffeemenu)
 
-# @app.route("/menu", methods = ["GET"])
-# def recipe():
-#    if request.args.get("nm"):
-#       rescoffee = request.args.get("nm")
-#       coffee = coffeemenu[rescoffee]
-#       print(coffee)
-#    else:
-#       coffee = "nofound"
-#    return redirect(url_for(coffee_maker,  coffee = coffee))
 
 if __name__ == "__main__":
    app.run(host="0.0.0.0", port=2224) # runs the application
