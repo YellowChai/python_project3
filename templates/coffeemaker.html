@@ -1,10 +1,20 @@
 <!doctype html>
 <html>
    <body>
-      <h1>Hello!</h1>
+      <h1>Here's your receipe!</h1>
+      
+      <h2>{{coffee.name}}</h2> 
+      <h4>Ingredients : </h4>
+         {%- for ingredient in coffee.ingredients %}
+            <li>{{ingredient -}}</li>
+         {% endfor%}
+      
+      <h4>Step by step : </h4> 
+         {%- for step in coffee.step %}
+            <li>{{step -}}</li>  
+         {% endfor%}
+    
 
-     </form>
-      {{coffee[0].name}} 
-   
+
    </body>
 </html>
