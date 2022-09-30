@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+   <body>
+      <h1>Coffee Menu</h1>
+
+      {%- for coffee in coffeemenu %}
+      <h3><a href="http://0.0.0.0:2224/menu/{{coffee.name}}"> {{coffee.name}}</a></h3> 
+      
+      {% endfor%}
+      
+
+   </body>
+</html>

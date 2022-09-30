@@ -81,24 +81,24 @@ def coffee_maker(coffee):
    print("hit")
    for x in coffeemenu:
       if x['name'] == coffee:
-         return render_template("coffeemaker.html", coffee = x)
+         return render_template("coffeedetail.html", coffee = x)
 
 @app.route("/menu/")
 def coffee_list():
    return render_template("coffeelist.html", coffeemenu = coffeemenu)
 
-@app.route("/menu", methods = ["GET"])
-def recipe():
-   if request.args.get("nm"):
-      rescoffee = request.args.get("nm")
-      coffee = coffeemenu[rescoffee]
-      print(coffee)
-   else:
-      coffee = "nofound"
-   return redirect(url_for(coffee_maker,  coffee = coffee))
+# @app.route("/menu", methods = ["GET"])
+# def recipe():
+#    if request.args.get("nm"):
+#       rescoffee = request.args.get("nm")
+#       coffee = coffeemenu[rescoffee]
+#       print(coffee)
+#    else:
+#       coffee = "nofound"
+#    return redirect(url_for(coffee_maker,  coffee = coffee))
 
 if __name__ == "__main__":
    app.run(host="0.0.0.0", port=2224) # runs the application
-   # app.run(host="0.0.0.0", port=2224, debug=True) # DEBUG MODE
+
 
 
