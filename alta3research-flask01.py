@@ -27,7 +27,8 @@ coffeemenu = [
       ],
       "step": [
          "Brew Coffee, and set the coffee aside and keep warm",
-         "Warm the pumpkin Spiced Milk - over medium heat, war the mil, maple syrup, pumpkin pie spice, and pumpkin puree in a small saucepan. Whisk the ingredients until the mil begins to bubble on the sides. Turn off the heat and add the vanilla extract.",
+         "Warm the pumpkin Spiced Milk - over medium heat, war the mil, maple syrup, pumpkin pie spice, and pumpkin puree in a small saucepan.",
+         "Whisk the ingredients until the mil begins to bubble on the sides. Turn off the heat and add the vanilla extract.",
          "Blend the Milk Mixture in the saucepan.",
          "Combine Mil and Coffee",
          "Enjoy! "
@@ -74,7 +75,7 @@ coffeemenu = [
 # should call the associated function
 @app.route("/")
 def hello_world():
-   return "Hello World"
+   return render_template("welcome.html")
 
 # search the coffee that user requested 
 @app.route("/menu/<coffee>")
